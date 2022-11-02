@@ -127,6 +127,7 @@ public class frmXemHoaDon extends javax.swing.JDialog {
     public void editMode(boolean mode) {
         // true : bật
         // false : tắt
+        comboboxKhachHang.setEnabled(mode);
         txtGiaTriGiam.setEnabled(mode);
         txtBarcode.setEnabled(mode);
         txtTimKiemSanPham.setEnabled(mode);
