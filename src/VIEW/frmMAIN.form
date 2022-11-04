@@ -625,7 +625,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtTimKiemKhachHang" min="-2" pref="219" max="-2" attributes="0"/>
+                      <Component id="txtTimKiemKhachHangPnlKH" min="-2" pref="219" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="btnTimKiemKhachHang" min="-2" pref="88" max="-2" attributes="0"/>
                       <EmptySpace pref="665" max="32767" attributes="0"/>
@@ -638,7 +638,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="2" attributes="0">
                           <Component id="jLabel7" alignment="2" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtTimKiemKhachHang" alignment="2" min="-2" pref="37" max="-2" attributes="0"/>
+                          <Component id="txtTimKiemKhachHangPnlKH" alignment="2" min="-2" pref="37" max="-2" attributes="0"/>
                           <Component id="btnTimKiemKhachHang" alignment="2" min="-2" max="-2" attributes="0"/>
                           <Component id="btnThemKhachHang" alignment="2" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -656,7 +656,10 @@
                 <Property name="text" type="java.lang.String" value="Ti&#x300;m kha&#x301;ch ha&#x300;ng :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtTimKiemKhachHang">
+            <Component class="javax.swing.JTextField" name="txtTimKiemKhachHangPnlKH">
+              <Events>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtTimKiemKhachHangPnlKHKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnTimKiemKhachHang">
               <Properties>
@@ -1175,7 +1178,7 @@
                           <Group type="102" attributes="0">
                               <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtTimKiemSanPham" min="-2" pref="219" max="-2" attributes="0"/>
+                              <Component id="txtTimKiemSanPhamPnlSanPham" min="-2" pref="219" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
@@ -1202,7 +1205,7 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="2" attributes="0">
                                           <Component id="jLabel10" alignment="2" min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtTimKiemSanPham" alignment="2" min="-2" pref="37" max="-2" attributes="0"/>
+                                          <Component id="txtTimKiemSanPhamPnlSanPham" alignment="2" min="-2" pref="37" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="2" attributes="0">
@@ -1236,7 +1239,12 @@
                 <Property name="text" type="java.lang.String" value="Ti&#x300;m sa&#x309;n ph&#xe2;&#x309;m :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtTimKiemSanPham">
+            <Component class="javax.swing.JTextField" name="txtTimKiemSanPhamPnlSanPham">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTimKiemSanPhamPnlSanPhamActionPerformed"/>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtTimKiemSanPhamPnlSanPhamKeyPressed"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtTimKiemSanPhamPnlSanPhamKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnReloadTableSanPham">
               <Properties>
@@ -1278,14 +1286,21 @@
             <Component class="javax.swing.JComboBox" name="comboBoxNhomHang">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
+                  <StringArray count="8">
+                    <StringItem index="0" value="T&#xe2;&#x301;t ca&#x309;"/>
+                    <StringItem index="1" value="Bia"/>
+                    <StringItem index="2" value="N&#x1b0;&#x1a1;&#x301;c ngo&#x323;t"/>
+                    <StringItem index="3" value="Ba&#x301;nh"/>
+                    <StringItem index="4" value="S&#x1b0;&#x303;a"/>
+                    <StringItem index="5" value="Gia vi&#x323;"/>
+                    <StringItem index="6" value="&#x110;&#xf4;&#x300; gia du&#x323;ng"/>
+                    <StringItem index="7" value="&#x110;&#xf4;&#x300; &#x102;n"/>
                   </StringArray>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="comboBoxNhomHangItemStateChanged"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
@@ -1349,7 +1364,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTable" name="tableSanPham">
+                    <Component class="javax.swing.JTable" name="tableSanPhamPnlSanPham">
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                           <Table columnCount="12" rowCount="4">
@@ -1438,7 +1453,7 @@
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tableSanPhamMousePressed"/>
+                        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tableSanPhamPnlSanPhamMousePressed"/>
                       </Events>
                     </Component>
                   </SubComponents>

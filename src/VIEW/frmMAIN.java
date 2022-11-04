@@ -45,6 +45,7 @@ public class frmMAIN extends javax.swing.JFrame {
 
     public static Account acc;
     public static Component thisFrame;
+    private String path = "src/IMAGE/";
 
     public frmMAIN(Account acount) {
 
@@ -259,7 +260,7 @@ public class frmMAIN extends javax.swing.JFrame {
 
     public void loadTableSanPham() {
         ArrayList<sanPham> data = MDSanPham.getDataToTable();
-        DefaultTableModel model = (DefaultTableModel) tableSanPham.getModel();
+        DefaultTableModel model = (DefaultTableModel) tableSanPhamPnlSanPham.getModel();
         model.setRowCount(0);
         String path = "src/IMAGE/";
         for (sanPham item : data) {
@@ -281,7 +282,7 @@ public class frmMAIN extends javax.swing.JFrame {
 
             });
         }
-        tableSanPham.setModel(model);
+        tableSanPhamPnlSanPham.setModel(model);
     }
 
     public void loadTableAccount() {
@@ -413,42 +414,42 @@ public class frmMAIN extends javax.swing.JFrame {
                 return false;
             }
         };
-        tableSanPham.setModel(model);
-        tableSanPham.setRowHeight(120);
-        tableSanPham.setRowMargin(7);
+        tableSanPhamPnlSanPham.setModel(model);
+        tableSanPhamPnlSanPham.setRowHeight(120);
+        tableSanPhamPnlSanPham.setRowMargin(7);
 
-        tableSanPham.setFont(new Font("Arial", Font.CENTER_BASELINE, 17));
+        tableSanPhamPnlSanPham.setFont(new Font("Arial", Font.CENTER_BASELINE, 17));
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
         centerRenderer.setHorizontalAlignment(JLabel.CENTER);
 
-        tableSanPham.getColumnModel().getColumn(1).setCellRenderer(centerRenderer);
-        tableSanPham.getColumnModel().getColumn(2).setCellRenderer(centerRenderer);
-        tableSanPham.getColumnModel().getColumn(3).setCellRenderer(centerRenderer);
-        tableSanPham.getColumnModel().getColumn(4).setCellRenderer(centerRenderer);
-        tableSanPham.getColumnModel().getColumn(5).setCellRenderer(centerRenderer);
-        tableSanPham.getColumnModel().getColumn(6).setCellRenderer(centerRenderer);
-        tableSanPham.getColumnModel().getColumn(7).setCellRenderer(centerRenderer);
-        tableSanPham.getColumnModel().getColumn(8).setCellRenderer(centerRenderer);
-        tableSanPham.getColumnModel().getColumn(9).setCellRenderer(centerRenderer);
-        tableSanPham.getColumnModel().getColumn(10).setCellRenderer(centerRenderer);
-        tableSanPham.getColumnModel().getColumn(11).setCellRenderer(centerRenderer);
+        tableSanPhamPnlSanPham.getColumnModel().getColumn(1).setCellRenderer(centerRenderer);
+        tableSanPhamPnlSanPham.getColumnModel().getColumn(2).setCellRenderer(centerRenderer);
+        tableSanPhamPnlSanPham.getColumnModel().getColumn(3).setCellRenderer(centerRenderer);
+        tableSanPhamPnlSanPham.getColumnModel().getColumn(4).setCellRenderer(centerRenderer);
+        tableSanPhamPnlSanPham.getColumnModel().getColumn(5).setCellRenderer(centerRenderer);
+        tableSanPhamPnlSanPham.getColumnModel().getColumn(6).setCellRenderer(centerRenderer);
+        tableSanPhamPnlSanPham.getColumnModel().getColumn(7).setCellRenderer(centerRenderer);
+        tableSanPhamPnlSanPham.getColumnModel().getColumn(8).setCellRenderer(centerRenderer);
+        tableSanPhamPnlSanPham.getColumnModel().getColumn(9).setCellRenderer(centerRenderer);
+        tableSanPhamPnlSanPham.getColumnModel().getColumn(10).setCellRenderer(centerRenderer);
+        tableSanPhamPnlSanPham.getColumnModel().getColumn(11).setCellRenderer(centerRenderer);
 
-        tableSanPham.getColumnModel().getColumn(0).setPreferredWidth(100);
-        tableSanPham.getColumnModel().getColumn(1).setPreferredWidth(70);
-        tableSanPham.getColumnModel().getColumn(2).setPreferredWidth(200);
-        tableSanPham.getColumnModel().getColumn(3).setPreferredWidth(150);
-        tableSanPham.getColumnModel().getColumn(4).setPreferredWidth(60);
-        tableSanPham.getColumnModel().getColumn(11).setPreferredWidth(110);
-        tableSanPham.getColumnModel().getColumn(12).setPreferredWidth(90);
-        tableSanPham.getColumnModel().getColumn(9).setPreferredWidth(60);
+        tableSanPhamPnlSanPham.getColumnModel().getColumn(0).setPreferredWidth(100);
+        tableSanPhamPnlSanPham.getColumnModel().getColumn(1).setPreferredWidth(70);
+        tableSanPhamPnlSanPham.getColumnModel().getColumn(2).setPreferredWidth(200);
+        tableSanPhamPnlSanPham.getColumnModel().getColumn(3).setPreferredWidth(150);
+        tableSanPhamPnlSanPham.getColumnModel().getColumn(4).setPreferredWidth(60);
+        tableSanPhamPnlSanPham.getColumnModel().getColumn(11).setPreferredWidth(110);
+        tableSanPhamPnlSanPham.getColumnModel().getColumn(12).setPreferredWidth(90);
+        tableSanPhamPnlSanPham.getColumnModel().getColumn(9).setPreferredWidth(60);
     }
 
     public void setSearchTextField() {
         helper.addIconSearch(txtTimKiemHoaDonBanHang);
-        helper.addIconSearch(txtTimKiemKhachHang);
+        helper.addIconSearch(txtTimKiemKhachHangPnlKH);
         helper.addIconSearch(txtTimKiemNhaCungCap);
         helper.addIconSearch(txtTimKiemNhanVien);
-        helper.addIconSearch(txtTimKiemSanPham);
+        helper.addIconSearch(txtTimKiemSanPhamPnlSanPham);
         helper.addIconSearch(txtTimKiemTaiKhoan);
         helper.addIconSearch(txtTimKiemThuNoKhachHang);
     }
@@ -485,7 +486,7 @@ public class frmMAIN extends javax.swing.JFrame {
         panelQuanLyKhachHang = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        txtTimKiemKhachHang = new javax.swing.JTextField();
+        txtTimKiemKhachHangPnlKH = new javax.swing.JTextField();
         btnTimKiemKhachHang = new javax.swing.JButton();
         btnThemKhachHang = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -507,7 +508,7 @@ public class frmMAIN extends javax.swing.JFrame {
         panelQuanLyHangHoa = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
-        txtTimKiemSanPham = new javax.swing.JTextField();
+        txtTimKiemSanPhamPnlSanPham = new javax.swing.JTextField();
         btnReloadTableSanPham = new javax.swing.JButton();
         btnThemSanPham = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
@@ -516,7 +517,7 @@ public class frmMAIN extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel8 = new javax.swing.JPanel();
         jScrollPane8 = new javax.swing.JScrollPane();
-        tableSanPham = new javax.swing.JTable();
+        tableSanPhamPnlSanPham = new javax.swing.JTable();
         jPanel9 = new javax.swing.JPanel();
         jScrollPane7 = new javax.swing.JScrollPane();
         tableDonViTinh = new javax.swing.JTable();
@@ -945,6 +946,12 @@ public class frmMAIN extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel7.setText("Tìm khách hàng :");
 
+        txtTimKiemKhachHangPnlKH.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtTimKiemKhachHangPnlKHKeyReleased(evt);
+            }
+        });
+
         btnTimKiemKhachHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICON/tim-nhan-vien.png"))); // NOI18N
 
         btnThemKhachHang.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -964,7 +971,7 @@ public class frmMAIN extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtTimKiemKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtTimKiemKhachHangPnlKH, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnTimKiemKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(665, Short.MAX_VALUE))
@@ -975,7 +982,7 @@ public class frmMAIN extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel7)
-                    .addComponent(txtTimKiemKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTimKiemKhachHangPnlKH, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnTimKiemKhachHang)
                     .addComponent(btnThemKhachHang))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1270,6 +1277,20 @@ public class frmMAIN extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel10.setText("Tìm sản phẩm :");
 
+        txtTimKiemSanPhamPnlSanPham.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTimKiemSanPhamPnlSanPhamActionPerformed(evt);
+            }
+        });
+        txtTimKiemSanPhamPnlSanPham.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtTimKiemSanPhamPnlSanPhamKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtTimKiemSanPhamPnlSanPhamKeyReleased(evt);
+            }
+        });
+
         btnReloadTableSanPham.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICON/reload.png"))); // NOI18N
         btnReloadTableSanPham.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1292,7 +1313,12 @@ public class frmMAIN extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel11.setText("Nhóm hàng :");
 
-        comboBoxNhomHang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboBoxNhomHang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tất cả", "Bia", "Nước ngọt", "Bánh", "Sữa", "Gia vị", "Đồ gia dụng", "Đồ Ăn" }));
+        comboBoxNhomHang.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                comboBoxNhomHangItemStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -1317,7 +1343,7 @@ public class frmMAIN extends javax.swing.JFrame {
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtTimKiemSanPham, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtTimKiemSanPhamPnlSanPham, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jLabel11)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1339,7 +1365,7 @@ public class frmMAIN extends javax.swing.JFrame {
                                 .addContainerGap()
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                                     .addComponent(jLabel10)
-                                    .addComponent(txtTimKiemSanPham, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtTimKiemSanPhamPnlSanPham, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(23, 23, 23)
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                                     .addComponent(comboBoxNhomHang, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1356,7 +1382,7 @@ public class frmMAIN extends javax.swing.JFrame {
 
         jTabbedPane1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 
-        tableSanPham.setModel(new javax.swing.table.DefaultTableModel(
+        tableSanPhamPnlSanPham.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null, null, null},
@@ -1382,14 +1408,14 @@ public class frmMAIN extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tableSanPham.setRowHeight(80);
-        tableSanPham.setRowMargin(3);
-        tableSanPham.addMouseListener(new java.awt.event.MouseAdapter() {
+        tableSanPhamPnlSanPham.setRowHeight(80);
+        tableSanPhamPnlSanPham.setRowMargin(3);
+        tableSanPhamPnlSanPham.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                tableSanPhamMousePressed(evt);
+                tableSanPhamPnlSanPhamMousePressed(evt);
             }
         });
-        jScrollPane8.setViewportView(tableSanPham);
+        jScrollPane8.setViewportView(tableSanPhamPnlSanPham);
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -2512,14 +2538,14 @@ public class frmMAIN extends javax.swing.JFrame {
         loadTableSanPham();
     }//GEN-LAST:event_btnThemSanPhamActionPerformed
 
-    private void tableSanPhamMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableSanPhamMousePressed
-        if (tableSanPham.getSelectedRows().length == 1 && evt.getClickCount() == 2) {
-            String id = tableSanPham.getValueAt(tableSanPham.getSelectedRow(), 1) + "";
+    private void tableSanPhamPnlSanPhamMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableSanPhamPnlSanPhamMousePressed
+        if (tableSanPhamPnlSanPham.getSelectedRows().length == 1 && evt.getClickCount() == 2) {
+            String id = tableSanPhamPnlSanPham.getValueAt(tableSanPhamPnlSanPham.getSelectedRow(), 1) + "";
             frmEditorSanPham frm = new frmEditorSanPham(this, true, id);
             frm.setVisible(true);
             loadTableSanPham();
         }
-    }//GEN-LAST:event_tableSanPhamMousePressed
+    }//GEN-LAST:event_tableSanPhamPnlSanPhamMousePressed
 
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
         openTab(panelDanhSachPhieuThuNoKhachHang, "Danh sách phiếu thu nợ");
@@ -2735,6 +2761,118 @@ public class frmMAIN extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtTimKiemNhaCungCapKeyReleased
 
+    private void txtTimKiemSanPhamPnlSanPhamKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiemSanPhamPnlSanPhamKeyReleased
+        // TODO add your handling code here:
+        loadTableSanPhamKeyReleased(txtTimKiemSanPhamPnlSanPham.getText());
+        
+    }//GEN-LAST:event_txtTimKiemSanPhamPnlSanPhamKeyReleased
+
+    public void loadTableSanPhamKeyReleased(String keyword) {
+        ArrayList<sanPham> dataSanPhamTable = MDSanPham.getDataToTableBanHang();
+        
+        DefaultTableModel model = (DefaultTableModel) tableSanPhamPnlSanPham.getModel();
+        model.setRowCount(0);
+
+        for (sanPham item : dataSanPhamTable) {
+            if (item.getIdSanPham().toLowerCase().contains(keyword.toLowerCase())
+                    || item.getName().toLowerCase().contains(keyword.toLowerCase())
+                    || item.getBarcode().toLowerCase().contains(keyword.toLowerCase())
+                    || helper.removeAccent(item.getIdSanPham().toLowerCase()).contains(keyword.toLowerCase())
+                    || helper.removeAccent(item.getName().toLowerCase()).contains(keyword.toLowerCase())) {
+
+                ImageIcon imageIcon = new ImageIcon(new ImageIcon(path + item.getHinhAnh()).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT));
+            model.addRow(new Object[]{
+                imageIcon,
+                item.getIdSanPham(),
+                item.getName(),
+                item.getBarcode(),
+                item.getIdDonViTinh(),
+                item.getIdLoaiSanPham(),
+                helper.LongToString(item.getGiaNhap()),
+                helper.LongToString(item.getGiaBan()),
+                helper.LongToString(item.getGiaSi()),
+                item.getSoLuong(),
+                item.getSoLuongToiThieu(),
+                item.getGhiChu(),
+                item.isTrangThai()
+
+            });
+            }
+        }
+        tableSanPhamPnlSanPham.setModel(model);
+    }
+    private void txtTimKiemSanPhamPnlSanPhamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTimKiemSanPhamPnlSanPhamActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTimKiemSanPhamPnlSanPhamActionPerformed
+
+    private void txtTimKiemKhachHangPnlKHKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiemKhachHangPnlKHKeyReleased
+        // TODO add your handling code here:
+        LoadTableKhachHangKeyReleased(txtTimKiemKhachHangPnlKH.getText());
+    }//GEN-LAST:event_txtTimKiemKhachHangPnlKHKeyReleased
+
+    private void comboBoxNhomHangItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboBoxNhomHangItemStateChanged
+        // TODO add your handling code here:
+        String loaSanPham = comboBoxNhomHang.getSelectedItem() + "";
+        loadTableLoaiSanPham(loaSanPham);
+    }//GEN-LAST:event_comboBoxNhomHangItemStateChanged
+
+    private void txtTimKiemSanPhamPnlSanPhamKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiemSanPhamPnlSanPhamKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTimKiemSanPhamPnlSanPhamKeyPressed
+
+    public void loadTableLoaiSanPham(String loaiSanPham) {
+        ArrayList<sanPham> dataSanPhamTable = MDSanPham.getDataToTable();
+        DefaultTableModel model = (DefaultTableModel) tableSanPhamPnlSanPham.getModel();
+        model.setRowCount(0);
+        for (sanPham item : dataSanPhamTable) {
+
+            if (loaiSanPham.equals("Tất cả") || item.getIdLoaiSanPham().equals(loaiSanPham)) {
+                ImageIcon imageIcon = new ImageIcon(new ImageIcon(path + item.getHinhAnh()).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT));
+            model.addRow(new Object[]{
+                imageIcon,
+                item.getIdSanPham(),
+                item.getName(),
+                item.getBarcode(),
+                item.getIdDonViTinh(),
+                item.getIdLoaiSanPham(),
+                helper.LongToString(item.getGiaNhap()),
+                helper.LongToString(item.getGiaBan()),
+                helper.LongToString(item.getGiaSi()),
+                item.getSoLuong(),
+                item.getSoLuongToiThieu(),
+                item.getGhiChu(),
+                item.isTrangThai()
+
+            });
+            }
+        }
+        tableSanPhamPnlSanPham.setModel(model);
+    }
+    public void LoadTableKhachHangKeyReleased(String keyword){
+        ArrayList<khachHang> dataKhachHangTable = MDKhachHang.getDataToTable();
+        
+        DefaultTableModel model = (DefaultTableModel) tableKhachHang.getModel();
+        model.setRowCount(0);
+        
+        for (khachHang item : dataKhachHangTable){
+            if(item.getIdKhachHang().toLowerCase().contains(keyword.toLowerCase())
+               || item.getName().toLowerCase().contains(keyword.toLowerCase())
+               || item.getSoDienThoai().contains(keyword)){
+               
+               model.addRow(new Object[]{
+                   item.getIdKhachHang(),
+                   item.getName(),
+                   item.getDiaChi(),
+                   item.getSoDienThoai(),
+                   item.getGhiChu(),
+                   item.getNo()
+               });
+            }
+        }
+        tableKhachHang.setModel(model);
+    }
+    
+    
     public void openTab(JPanel TypeOfPanel, String name) {
         JPanel tab = TypeOfPanel;
         tab.setName(name);
@@ -2893,15 +3031,15 @@ public class frmMAIN extends javax.swing.JFrame {
     private javax.swing.JTable tableLoaiSanPham;
     private javax.swing.JTable tableNhaCungCap;
     private javax.swing.JTable tableNhanVien;
-    private javax.swing.JTable tableSanPham;
+    private javax.swing.JTable tableSanPhamPnlSanPham;
     private javax.swing.JTable tableTaiKhoan;
     private javax.swing.JTable tableThuNoKhachHang;
     private javax.swing.JTable tableTraNoNhaCungCap;
     private javax.swing.JTextField txtTimKiemHoaDonBanHang;
-    private javax.swing.JTextField txtTimKiemKhachHang;
+    private javax.swing.JTextField txtTimKiemKhachHangPnlKH;
     private javax.swing.JTextField txtTimKiemNhaCungCap;
     private javax.swing.JTextField txtTimKiemNhanVien;
-    private javax.swing.JTextField txtTimKiemSanPham;
+    private javax.swing.JTextField txtTimKiemSanPhamPnlSanPham;
     private javax.swing.JTextField txtTimKiemTaiKhoan;
     private javax.swing.JTextField txtTimKiemThuNoKhachHang;
     private javax.swing.JTextField txtTimKiemThuNoKhachHang1;

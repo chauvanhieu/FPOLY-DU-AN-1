@@ -43,11 +43,9 @@ public class panelTaoHoaDonBanHang extends javax.swing.JPanel {
     private DetailedComboBox comboboxKhachHang;
     public static Account acc;
     private ArrayList<chiTietHoaDon> dataChiTietHoaDon = new ArrayList<>();
-//    private ArrayList<String> listLoaiSanPham = MDLoaiSanPham.getNames();
     private ArrayList<String> listLoaiSanPham;
     private String path = "src/IMAGE/";
     private ArrayList<khachHang> dataKhachHang;
-//    private ArrayList<khachHang> dataKhachHang = MDKhachHang.getDataToComboBox();
     private String idKhachHang = "KH01";
     private long soTienGoc;
 
@@ -73,6 +71,8 @@ public class panelTaoHoaDonBanHang extends javax.swing.JPanel {
         txtBarcode.requestFocus();
         lbtienkhachdua.setVisible(false);
         txtTienKhachDua.setVisible(false);
+        dataChiTietHoaDon.clear();
+        loadGioHang();
     }
 
     public void themNhanhSanPham() {
@@ -135,6 +135,7 @@ public class panelTaoHoaDonBanHang extends javax.swing.JPanel {
         for (sanPham item : dataSanPhamTable) {
             if (item.getIdSanPham().toLowerCase().contains(keyword.toLowerCase())
                     || item.getName().toLowerCase().contains(keyword.toLowerCase())
+                    || item.getBarcode().toLowerCase().contains(keyword.toLowerCase())
                     || helper.removeAccent(item.getIdSanPham().toLowerCase()).contains(keyword.toLowerCase())
                     || helper.removeAccent(item.getName().toLowerCase()).contains(keyword.toLowerCase())) {
 
@@ -308,6 +309,11 @@ public class panelTaoHoaDonBanHang extends javax.swing.JPanel {
 
         txtBarcode.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtBarcode.setActionCommand("<Not Set>");
+        txtBarcode.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBarcodeKeyReleased(evt);
+            }
+        });
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICON/new.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -337,6 +343,11 @@ public class panelTaoHoaDonBanHang extends javax.swing.JPanel {
         cbLoaiSanPham.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cbLoaiSanPhamItemStateChanged(evt);
+            }
+        });
+        cbLoaiSanPham.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbLoaiSanPhamActionPerformed(evt);
             }
         });
 
@@ -1126,6 +1137,14 @@ public class panelTaoHoaDonBanHang extends javax.swing.JPanel {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void txtBarcodeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBarcodeKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBarcodeKeyReleased
+
+    private void cbLoaiSanPhamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbLoaiSanPhamActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbLoaiSanPhamActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
