@@ -2323,8 +2323,6 @@ public class frmMAIN extends javax.swing.JFrame {
         taoPhieuBanHang();
     }//GEN-LAST:event_btnTaoHoaDonBanHangActionPerformed
     public void taoPhieuBanHang() {
-        panelTaoHoaDonBanHang panel;
-        panel = new panelTaoHoaDonBanHang(acc);
 
         popupWaiting popup = new popupWaiting(this, false);
         popup.setVisible(true);
@@ -2335,6 +2333,7 @@ public class frmMAIN extends javax.swing.JFrame {
                 if (values < 100) {
                     popup.prog.setValue(values + 5);
                     if (popup.prog.getValue() == 95) {
+                        panelTaoHoaDonBanHang panel = new panelTaoHoaDonBanHang(acc);
                         if (tabbed.getTabCount() == 0) {
                             panelMain.removeAll();
                             panelMain.add(tabbed);
@@ -2765,12 +2764,12 @@ public class frmMAIN extends javax.swing.JFrame {
     private void txtTimKiemSanPhamPnlSanPhamKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiemSanPhamPnlSanPhamKeyReleased
         // TODO add your handling code here:
         loadTableSanPhamKeyReleased(txtTimKiemSanPhamPnlSanPham.getText());
-        
+
     }//GEN-LAST:event_txtTimKiemSanPhamPnlSanPhamKeyReleased
 
     public void loadTableSanPhamKeyReleased(String keyword) {
         ArrayList<sanPham> dataSanPhamTable = MDSanPham.getDataToTableBanHang();
-        
+
         DefaultTableModel model = (DefaultTableModel) tableSanPhamPnlSanPham.getModel();
         model.setRowCount(0);
 
@@ -2782,22 +2781,22 @@ public class frmMAIN extends javax.swing.JFrame {
                     || helper.removeAccent(item.getName().toLowerCase()).contains(keyword.toLowerCase())) {
 
                 ImageIcon imageIcon = new ImageIcon(new ImageIcon(path + item.getHinhAnh()).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT));
-            model.addRow(new Object[]{
-                imageIcon,
-                item.getIdSanPham(),
-                item.getName(),
-                item.getBarcode(),
-                item.getIdDonViTinh(),
-                item.getIdLoaiSanPham(),
-                helper.LongToString(item.getGiaNhap()),
-                helper.LongToString(item.getGiaBan()),
-                helper.LongToString(item.getGiaSi()),
-                item.getSoLuong(),
-                item.getSoLuongToiThieu(),
-                item.getGhiChu(),
-                item.isTrangThai()
+                model.addRow(new Object[]{
+                    imageIcon,
+                    item.getIdSanPham(),
+                    item.getName(),
+                    item.getBarcode(),
+                    item.getIdDonViTinh(),
+                    item.getIdLoaiSanPham(),
+                    helper.LongToString(item.getGiaNhap()),
+                    helper.LongToString(item.getGiaBan()),
+                    helper.LongToString(item.getGiaSi()),
+                    item.getSoLuong(),
+                    item.getSoLuongToiThieu(),
+                    item.getGhiChu(),
+                    item.isTrangThai()
 
-            });
+                });
             }
         }
         tableSanPhamPnlSanPham.setModel(model);
@@ -2829,51 +2828,51 @@ public class frmMAIN extends javax.swing.JFrame {
 
             if (loaiSanPham.equals("Tất cả") || item.getIdLoaiSanPham().equals(loaiSanPham)) {
                 ImageIcon imageIcon = new ImageIcon(new ImageIcon(path + item.getHinhAnh()).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT));
-            model.addRow(new Object[]{
-                imageIcon,
-                item.getIdSanPham(),
-                item.getName(),
-                item.getBarcode(),
-                item.getIdDonViTinh(),
-                item.getIdLoaiSanPham(),
-                helper.LongToString(item.getGiaNhap()),
-                helper.LongToString(item.getGiaBan()),
-                helper.LongToString(item.getGiaSi()),
-                item.getSoLuong(),
-                item.getSoLuongToiThieu(),
-                item.getGhiChu(),
-                item.isTrangThai()
+                model.addRow(new Object[]{
+                    imageIcon,
+                    item.getIdSanPham(),
+                    item.getName(),
+                    item.getBarcode(),
+                    item.getIdDonViTinh(),
+                    item.getIdLoaiSanPham(),
+                    helper.LongToString(item.getGiaNhap()),
+                    helper.LongToString(item.getGiaBan()),
+                    helper.LongToString(item.getGiaSi()),
+                    item.getSoLuong(),
+                    item.getSoLuongToiThieu(),
+                    item.getGhiChu(),
+                    item.isTrangThai()
 
-            });
+                });
             }
         }
         tableSanPhamPnlSanPham.setModel(model);
     }
-    public void LoadTableKhachHangKeyReleased(String keyword){
+
+    public void LoadTableKhachHangKeyReleased(String keyword) {
         ArrayList<khachHang> dataKhachHangTable = MDKhachHang.getDataToTable();
-        
+
         DefaultTableModel model = (DefaultTableModel) tableKhachHang.getModel();
         model.setRowCount(0);
-        
-        for (khachHang item : dataKhachHangTable){
-            if(item.getIdKhachHang().toLowerCase().contains(keyword.toLowerCase())
-               || item.getName().toLowerCase().contains(keyword.toLowerCase())
-               || item.getSoDienThoai().contains(keyword)){
-               
-               model.addRow(new Object[]{
-                   item.getIdKhachHang(),
-                   item.getName(),
-                   item.getDiaChi(),
-                   item.getSoDienThoai(),
-                   item.getGhiChu(),
-                   item.getNo()
-               });
+
+        for (khachHang item : dataKhachHangTable) {
+            if (item.getIdKhachHang().toLowerCase().contains(keyword.toLowerCase())
+                    || item.getName().toLowerCase().contains(keyword.toLowerCase())
+                    || item.getSoDienThoai().contains(keyword)) {
+
+                model.addRow(new Object[]{
+                    item.getIdKhachHang(),
+                    item.getName(),
+                    item.getDiaChi(),
+                    item.getSoDienThoai(),
+                    item.getGhiChu(),
+                    item.getNo()
+                });
             }
         }
         tableKhachHang.setModel(model);
     }
-    
-    
+
     public void openTab(JPanel TypeOfPanel, String name) {
         JPanel tab = TypeOfPanel;
         tab.setName(name);

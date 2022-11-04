@@ -255,7 +255,7 @@ public class panelTaoHoaDonBanHang extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        iconBarcode = new javax.swing.JLabel();
         txtBarcode = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         btnEnter = new javax.swing.JButton();
@@ -298,12 +298,12 @@ public class panelTaoHoaDonBanHang extends javax.swing.JPanel {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICON/scan-barcode.png"))); // NOI18N
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        iconBarcode.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        iconBarcode.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        iconBarcode.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICON/scan-barcode.png"))); // NOI18N
+        iconBarcode.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
+                iconBarcodeMouseClicked(evt);
             }
         });
 
@@ -412,7 +412,7 @@ public class panelTaoHoaDonBanHang extends javax.swing.JPanel {
                                 .addGap(18, 18, 18)
                                 .addComponent(txtTimKiemSanPham, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
+                                .addComponent(iconBarcode)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtBarcode, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(8, 8, 8)
@@ -429,7 +429,7 @@ public class panelTaoHoaDonBanHang extends javax.swing.JPanel {
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtBarcode, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(iconBarcode))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -997,7 +997,6 @@ public class panelTaoHoaDonBanHang extends javax.swing.JPanel {
         } catch (AWTException ex) {
             Logger.getLogger(panelTaoHoaDonBanHang.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
 
@@ -1013,9 +1012,9 @@ public class panelTaoHoaDonBanHang extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+    private void iconBarcodeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconBarcodeMouseClicked
         txtBarcode.requestFocus();
-    }//GEN-LAST:event_jLabel2MouseClicked
+    }//GEN-LAST:event_iconBarcodeMouseClicked
     public void deleteGioHang() {
         DefaultTableModel model = (DefaultTableModel) tableGioHang.getModel();
         for (int i = 0; i < tableGioHang.getRowCount(); i++) {
@@ -1154,13 +1153,13 @@ public class panelTaoHoaDonBanHang extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> cbHinhThucThanhToan;
     private javax.swing.JComboBox<String> cbLoaiSanPham;
     private javax.swing.JComboBox<String> cbTuyChonGiamGia;
+    private javax.swing.JLabel iconBarcode;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
