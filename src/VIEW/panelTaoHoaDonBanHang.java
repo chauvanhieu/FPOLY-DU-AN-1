@@ -543,6 +543,11 @@ public class panelTaoHoaDonBanHang extends javax.swing.JPanel {
         jButton5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jButton5.setForeground(new java.awt.Color(0, 102, 204));
         jButton5.setText("Lưu & in (F10)");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jButton6.setForeground(new java.awt.Color(255, 0, 51));
@@ -1117,6 +1122,10 @@ public class panelTaoHoaDonBanHang extends javax.swing.JPanel {
             txtTienKhachDua.setVisible(false);
         }
     }//GEN-LAST:event_cbHinhThucThanhToanItemStateChanged
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
