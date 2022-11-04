@@ -2297,7 +2297,8 @@ public class frmMAIN extends javax.swing.JFrame {
         taoPhieuBanHang();
     }//GEN-LAST:event_btnTaoHoaDonBanHangActionPerformed
     public void taoPhieuBanHang() {
-        panelTaoHoaDonBanHang panel = new panelTaoHoaDonBanHang(acc);
+        panelTaoHoaDonBanHang panel;
+        panel = new panelTaoHoaDonBanHang(acc);
 
         popupWaiting popup = new popupWaiting(this, false);
         popup.setVisible(true);
