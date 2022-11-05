@@ -22,8 +22,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -37,6 +39,11 @@ import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class panelTaoHoaDonBanHang extends javax.swing.JPanel {
 
@@ -48,6 +55,7 @@ public class panelTaoHoaDonBanHang extends javax.swing.JPanel {
     private ArrayList<khachHang> dataKhachHang;
     private String idKhachHang = "KH01";
     private long soTienGoc;
+    private String idHoaDonBanHang = "";
 
     public panelTaoHoaDonBanHang(Account account) {
         initComponents();
@@ -989,6 +997,7 @@ public class panelTaoHoaDonBanHang extends javax.swing.JPanel {
                 tienKhachDua,
                 tableGioHang,
                 dataChiTietHoaDon);
+        idHoaDonBanHang = hoadon.getId();
         JOptionPane.showMessageDialog(this, "THANH TOÁN THÀNH CÔNG !");
         Robot robot;
         try {
@@ -1134,7 +1143,34 @@ public class panelTaoHoaDonBanHang extends javax.swing.JPanel {
     }//GEN-LAST:event_cbHinhThucThanhToanItemStateChanged
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+        if (dataChiTietHoaDon.size() != 0) {
+            if (comboboxKhachHang.getSelectedIndex() == 0) {
+                idKhachHang = "KH01";
+            }
+            thanhToan();
+            hoaDon hoaDon = MDHoaDon.getHoaDon(idHoaDonBanHang);
+            try {
+                Hashtable map = new Hashtable();
+                JasperReport jasper = JasperCompileManager.compileReport("src/REPORT/hoaDonBanHang.jrxml");
+                map.put("tenCuaHang", "Tạp hóa FPOLY MARKET");
+                map.put("diaChiCuaHang", "317 Phan Bội Châu, TP.BMT");
+                map.put("idHoaDon", hoaDon.getId());
+                map.put("soDienThoaiCuaHang", "0909 79 79 79");
+                map.put("soTienGiamGia", HELPER.helper.SoString(hoaDon.getGiamGia()) + " đ");
+                map.put("soTienThanhToan", HELPER.helper.SoString(hoaDon.getTongTien()) + " đ");
+                map.put("tenNhanVien", hoaDon.getIdNhanVien());
+                map.put("tenKhachHang", hoaDon.getIdKhachHang());
+                map.put("thoiGian", hoaDon.getThoiGian());
+
+                Connection con = HELPER.SQLhelper.getConnection();
+                JasperPrint printer = JasperFillManager.fillReport(jasper, map, con);
+                JasperViewer.viewReport(printer, false);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Chưa có sản phẩm !");
+        }
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void txtBarcodeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBarcodeKeyReleased
