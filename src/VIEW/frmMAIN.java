@@ -1227,11 +1227,6 @@ public class frmMAIN extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel9.setText("Tìm tài khoản :");
 
-        txtTimKiemTaiKhoan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTimKiemTaiKhoanActionPerformed(evt);
-            }
-        });
         txtTimKiemTaiKhoan.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtTimKiemTaiKhoanKeyReleased(evt);
@@ -2850,12 +2845,14 @@ public class frmMAIN extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTimKiemSanPhamPnlSanPhamKeyPressed
 
+
     private void jMenuItem31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem31ActionPerformed
 
     }//GEN-LAST:event_jMenuItem31ActionPerformed
-    private void txtTimKiemTaiKhoanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTimKiemTaiKhoanActionPerformed
+
+    private void txtTimKiemTaiKhoanActionPerformed(java.awt.event.ActionEvent evt) {                                                   
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtTimKiemTaiKhoanActionPerformed
+    }                                                  
 
     public void loadTableLoaiSanPham(String loaiSanPham) {
         ArrayList<sanPham> dataSanPhamTable = MDSanPham.getDataToTable();
@@ -2885,6 +2882,77 @@ public class frmMAIN extends javax.swing.JFrame {
         }
         tableSanPhamPnlSanPham.setModel(model);
     }
+
+    public void LoadTableKhachHangKeyReleased(String keyword){
+        String text = txtTimKiemKhachHangPnlKH.getText();
+        ArrayList<khachHang> dataKhachHangTable = MDKhachHang.getDataToTable();
+        ArrayList<khachHang> find = new ArrayList<khachHang>();
+        
+     
+        for (khachHang item : dataKhachHangTable){
+            if(item.getIdKhachHang().toLowerCase().contains(text.toLowerCase())
+               || item.getName().toLowerCase().contains(text.toLowerCase())
+               || item.getSoDienThoai().contains(text)
+               || helper.removeAccent(item.getName().toLowerCase()).contains(text.toLowerCase())){
+               find.add(item);
+            }
+        }
+        if (text != "") {
+            loadTableKhachHang(find);
+        } else {
+            loadTableKhachHang(dataKhachHangTable);
+        }
+    }
+//    public void LoadTableKhachHangKeyReleased(String keyword) {
+//        ArrayList<khachHang> dataKhachHangTable = MDKhachHang.getDataToTable();
+//
+//        DefaultTableModel model = (DefaultTableModel) tableKhachHang.getModel();
+//        model.setRowCount(0);
+//
+//        for (khachHang item : dataKhachHangTable) {
+//            if (item.getIdKhachHang().toLowerCase().contains(keyword.toLowerCase())
+//                    || item.getName().toLowerCase().contains(keyword.toLowerCase())
+//                    || item.getSoDienThoai().contains(keyword)) {
+//
+//                model.addRow(new Object[]{
+//                    item.getIdKhachHang(),
+//                    item.getName(),
+//                    item.getDiaChi(),
+//                    item.getSoDienThoai(),
+//                    item.getGhiChu(),
+//                    item.getNo()
+//                });
+//
+//            }
+//        }
+//        
+//    }
+
+    
+////    private void txtTimKiemNhanVienKeyReleased(java.awt.event.KeyEvent evt) {                                               
+////        String text = txtTimKiemNhanVien.getText();
+////        ArrayList<nhanVien> data = MDNhanVien.getDataToTable();
+////        ArrayList<nhanVien> find = new ArrayList<nhanVien>();
+////        for (nhanVien item : data) {
+////            if (item.getIdNhanVien().toLowerCase().contains(text.toLowerCase())
+////                    || item.getSoDienthoai().contains(text)
+////                    || item.getName().toLowerCase().contains(text.toLowerCase())
+////                    || helper.removeAccent(item.getIdNhanVien().toLowerCase()).contains(text.toLowerCase())
+////                    || helper.removeAccent(item.getName().toLowerCase()).contains(text.toLowerCase())) {
+////                find.add(item);
+////            }
+////        }
+////        if (text != "") {
+////            loadTableNhanVien(find);
+////        } else {
+////            loadTableNhanVien(data);
+////        }
+//    }
+    
+    
+
+
+
 
     public void openTab(JPanel TypeOfPanel, String name) {
         JPanel tab = TypeOfPanel;
