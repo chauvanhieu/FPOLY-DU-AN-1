@@ -1227,11 +1227,6 @@ public class frmMAIN extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel9.setText("Tìm tài khoản :");
 
-        txtTimKiemTaiKhoan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTimKiemTaiKhoanActionPerformed(evt);
-            }
-        });
         txtTimKiemTaiKhoan.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtTimKiemTaiKhoanKeyReleased(evt);
@@ -2837,6 +2832,23 @@ public class frmMAIN extends javax.swing.JFrame {
     }//GEN-LAST:event_txtTimKiemSanPhamPnlSanPhamActionPerformed
 
     private void txtTimKiemKhachHangPnlKHKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiemKhachHangPnlKHKeyReleased
+        String text = txtTimKiemKhachHangPnlKH.getText();
+        ArrayList<khachHang> dataKhachHangTable = MDKhachHang.getDataToTable();
+        ArrayList<khachHang> find = new ArrayList<khachHang>();
+
+        for (khachHang item : dataKhachHangTable) {
+            if (item.getIdKhachHang().toLowerCase().contains(text.toLowerCase())
+                    || item.getName().toLowerCase().contains(text.toLowerCase())
+                    || item.getSoDienThoai().contains(text)
+                    || helper.removeAccent(item.getName().toLowerCase()).contains(text.toLowerCase())) {
+                find.add(item);
+            }
+        }
+        if (text != "") {
+            loadTableKhachHang(find);
+        } else {
+            loadTableKhachHang(dataKhachHangTable);
+        }
 
     }//GEN-LAST:event_txtTimKiemKhachHangPnlKHKeyReleased
 
@@ -2850,24 +2862,15 @@ public class frmMAIN extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTimKiemSanPhamPnlSanPhamKeyPressed
 
-<<<<<<< HEAD
 
-=======
->>>>>>> e44056dbe9eeab31374ce6358bc658bd5f33b87c
     private void jMenuItem31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem31ActionPerformed
 
     }//GEN-LAST:event_jMenuItem31ActionPerformed
-<<<<<<< HEAD
 
-    private void txtTimKiemTaiKhoanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTimKiemTaiKhoanActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTimKiemTaiKhoanActionPerformed
 
-=======
-    private void txtTimKiemTaiKhoanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTimKiemTaiKhoanActionPerformed
+    private void txtTimKiemTaiKhoanActionPerformed(java.awt.event.ActionEvent evt) {                                                   
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtTimKiemTaiKhoanActionPerformed
->>>>>>> e44056dbe9eeab31374ce6358bc658bd5f33b87c
+    }                                                  
 
     public void loadTableLoaiSanPham(String loaiSanPham) {
         ArrayList<sanPham> dataSanPhamTable = MDSanPham.getDataToTable();
@@ -2898,19 +2901,17 @@ public class frmMAIN extends javax.swing.JFrame {
         tableSanPhamPnlSanPham.setModel(model);
     }
 
-<<<<<<< HEAD
-    public void LoadTableKhachHangKeyReleased(String keyword){
+    public void LoadTableKhachHangKeyReleased(String keyword) {
         String text = txtTimKiemKhachHangPnlKH.getText();
         ArrayList<khachHang> dataKhachHangTable = MDKhachHang.getDataToTable();
         ArrayList<khachHang> find = new ArrayList<khachHang>();
-        
-     
-        for (khachHang item : dataKhachHangTable){
-            if(item.getIdKhachHang().toLowerCase().contains(text.toLowerCase())
-               || item.getName().toLowerCase().contains(text.toLowerCase())
-               || item.getSoDienThoai().contains(text)
-               || helper.removeAccent(item.getName().toLowerCase()).contains(text.toLowerCase())){
-               find.add(item);
+
+        for (khachHang item : dataKhachHangTable) {
+            if (item.getIdKhachHang().toLowerCase().contains(text.toLowerCase())
+                    || item.getName().toLowerCase().contains(text.toLowerCase())
+                    || item.getSoDienThoai().contains(text)
+                    || helper.removeAccent(item.getName().toLowerCase()).contains(text.toLowerCase())) {
+                find.add(item);
             }
         }
         if (text != "") {
@@ -2944,7 +2945,6 @@ public class frmMAIN extends javax.swing.JFrame {
 //        
 //    }
 
-    
 ////    private void txtTimKiemNhanVienKeyReleased(java.awt.event.KeyEvent evt) {                                               
 ////        String text = txtTimKiemNhanVien.getText();
 ////        ArrayList<nhanVien> data = MDNhanVien.getDataToTable();
@@ -2964,13 +2964,6 @@ public class frmMAIN extends javax.swing.JFrame {
 ////            loadTableNhanVien(data);
 ////        }
 //    }
-    
-    
-
-
-
-=======
->>>>>>> e44056dbe9eeab31374ce6358bc658bd5f33b87c
     public void openTab(JPanel TypeOfPanel, String name) {
         JPanel tab = TypeOfPanel;
         tab.setName(name);
