@@ -1166,7 +1166,7 @@ public class panelTaoHoaDonBanHang extends javax.swing.JPanel {
                 JasperPrint printer = JasperFillManager.fillReport(jasper, map, con);
                 JasperViewer.viewReport(printer, false);
             } catch (Exception e) {
-                e.printStackTrace();
+                System.out.println("");
             }
         } else {
             JOptionPane.showMessageDialog(this, "Chưa có sản phẩm !");
