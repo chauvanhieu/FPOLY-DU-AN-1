@@ -568,6 +568,7 @@ public class frmMAIN extends javax.swing.JFrame {
         panelMain = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenuItem31 = new javax.swing.JMenuItem();
         jMenuItem30 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -2051,6 +2052,15 @@ public class frmMAIN extends javax.swing.JFrame {
 
         jMenu1.setText("Hệ thống");
 
+        jMenuItem31.setText("Thông tin cửa hàng");
+        jMenuItem31.setMargin(new java.awt.Insets(6, 6, 6, 6));
+        jMenuItem31.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem31ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem31);
+
         jMenuItem30.setText("Đổi giao diện");
         jMenuItem30.setMargin(new java.awt.Insets(6, 6, 6, 6));
         jMenuItem30.addActionListener(new java.awt.event.ActionListener() {
@@ -2820,6 +2830,10 @@ public class frmMAIN extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTimKiemSanPhamPnlSanPhamKeyPressed
 
+    private void jMenuItem31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem31ActionPerformed
+        
+    }//GEN-LAST:event_jMenuItem31ActionPerformed
+
     public void loadTableLoaiSanPham(String loaiSanPham) {
         ArrayList<sanPham> dataSanPhamTable = MDSanPham.getDataToTable();
         DefaultTableModel model = (DefaultTableModel) tableSanPhamPnlSanPham.getModel();
@@ -2958,6 +2972,7 @@ public class frmMAIN extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem29;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem30;
+    private javax.swing.JMenuItem jMenuItem31;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
