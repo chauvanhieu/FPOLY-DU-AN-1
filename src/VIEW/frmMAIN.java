@@ -2832,6 +2832,23 @@ public class frmMAIN extends javax.swing.JFrame {
     }//GEN-LAST:event_txtTimKiemSanPhamPnlSanPhamActionPerformed
 
     private void txtTimKiemKhachHangPnlKHKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiemKhachHangPnlKHKeyReleased
+        String text = txtTimKiemKhachHangPnlKH.getText();
+        ArrayList<khachHang> dataKhachHangTable = MDKhachHang.getDataToTable();
+        ArrayList<khachHang> find = new ArrayList<khachHang>();
+
+        for (khachHang item : dataKhachHangTable) {
+            if (item.getIdKhachHang().toLowerCase().contains(text.toLowerCase())
+                    || item.getName().toLowerCase().contains(text.toLowerCase())
+                    || item.getSoDienThoai().contains(text)
+                    || helper.removeAccent(item.getName().toLowerCase()).contains(text.toLowerCase())) {
+                find.add(item);
+            }
+        }
+        if (text != "") {
+            loadTableKhachHang(find);
+        } else {
+            loadTableKhachHang(dataKhachHangTable);
+        }
 
     }//GEN-LAST:event_txtTimKiemKhachHangPnlKHKeyReleased
 
@@ -2849,6 +2866,7 @@ public class frmMAIN extends javax.swing.JFrame {
     private void jMenuItem31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem31ActionPerformed
 
     }//GEN-LAST:event_jMenuItem31ActionPerformed
+
 
     private void txtTimKiemTaiKhoanActionPerformed(java.awt.event.ActionEvent evt) {                                                   
         // TODO add your handling code here:
@@ -2883,18 +2901,18 @@ public class frmMAIN extends javax.swing.JFrame {
         tableSanPhamPnlSanPham.setModel(model);
     }
 
-    public void LoadTableKhachHangKeyReleased(String keyword){
+//    public void LoadTableKhachHangKeyReleased(String keyword){
+    public void LoadTableKhachHangKeyReleased(String keyword) {
         String text = txtTimKiemKhachHangPnlKH.getText();
         ArrayList<khachHang> dataKhachHangTable = MDKhachHang.getDataToTable();
         ArrayList<khachHang> find = new ArrayList<khachHang>();
-        
-     
-        for (khachHang item : dataKhachHangTable){
-            if(item.getIdKhachHang().toLowerCase().contains(text.toLowerCase())
-               || item.getName().toLowerCase().contains(text.toLowerCase())
-               || item.getSoDienThoai().contains(text)
-               || helper.removeAccent(item.getName().toLowerCase()).contains(text.toLowerCase())){
-               find.add(item);
+
+        for (khachHang item : dataKhachHangTable) {
+            if (item.getIdKhachHang().toLowerCase().contains(text.toLowerCase())
+                    || item.getName().toLowerCase().contains(text.toLowerCase())
+                    || item.getSoDienThoai().contains(text)
+                    || helper.removeAccent(item.getName().toLowerCase()).contains(text.toLowerCase())) {
+                find.add(item);
             }
         }
         if (text != "") {
@@ -2928,7 +2946,6 @@ public class frmMAIN extends javax.swing.JFrame {
 //        
 //    }
 
-    
 ////    private void txtTimKiemNhanVienKeyReleased(java.awt.event.KeyEvent evt) {                                               
 ////        String text = txtTimKiemNhanVien.getText();
 ////        ArrayList<nhanVien> data = MDNhanVien.getDataToTable();
