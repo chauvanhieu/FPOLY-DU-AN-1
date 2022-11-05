@@ -258,6 +258,25 @@ public class frmMAIN extends javax.swing.JFrame {
         tableKhachHang.setModel(model);
     }
 
+    
+    public void loadTableKhachHang(ArrayList<khachHang> data) {
+//        ArrayList<khachHang> data = MDKhachHang.getDataToTable();
+        DefaultTableModel model = (DefaultTableModel) tableKhachHang.getModel();
+        model.setRowCount(0);
+        for (khachHang item : data) {
+            model.addRow(new Object[]{
+                item.getIdKhachHang(),
+                item.getName(),
+                item.getDiaChi(),
+                item.getSoDienThoai(),
+                item.getGhiChu(),
+                helper.LongToString(item.getNo()),
+                item.isTrangThai()
+            });
+        }
+        tableKhachHang.setModel(model);
+    }
+
     public void loadTableSanPham() {
         ArrayList<sanPham> data = MDSanPham.getDataToTable();
         DefaultTableModel model = (DefaultTableModel) tableSanPhamPnlSanPham.getModel();
@@ -1211,6 +1230,11 @@ public class frmMAIN extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel9.setText("Tìm tài khoản :");
 
+        txtTimKiemTaiKhoan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTimKiemTaiKhoanActionPerformed(evt);
+            }
+        });
         txtTimKiemTaiKhoan.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtTimKiemTaiKhoanKeyReleased(evt);
@@ -2817,7 +2841,26 @@ public class frmMAIN extends javax.swing.JFrame {
 
     private void txtTimKiemKhachHangPnlKHKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiemKhachHangPnlKHKeyReleased
         // TODO add your handling code here:
-        LoadTableKhachHangKeyReleased(txtTimKiemKhachHangPnlKH.getText());
+//        LoadTableKhachHangKeyReleased(txtTimKiemKhachHangPnlKH.getText());
+        String text = txtTimKiemKhachHangPnlKH.getText();
+        ArrayList<khachHang> dataKhachHangTable = MDKhachHang.getDataToTable();
+        ArrayList<khachHang> find = new ArrayList<khachHang>();
+        
+     
+        for (khachHang item : dataKhachHangTable){
+            if(item.getIdKhachHang().toLowerCase().contains(text.toLowerCase())
+               || item.getName().toLowerCase().contains(text.toLowerCase())
+               || item.getSoDienThoai().contains(text)
+               || helper.removeAccent(item.getName().toLowerCase()).contains(text.toLowerCase())){
+               find.add(item);
+            }
+        }
+        if (text != "") {
+            loadTableKhachHang(find);
+        } else {
+            loadTableKhachHang(dataKhachHangTable);
+        }
+    
     }//GEN-LAST:event_txtTimKiemKhachHangPnlKHKeyReleased
 
     private void comboBoxNhomHangItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboBoxNhomHangItemStateChanged
@@ -2830,9 +2873,15 @@ public class frmMAIN extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTimKiemSanPhamPnlSanPhamKeyPressed
 
+<<<<<<< HEAD
     private void jMenuItem31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem31ActionPerformed
         
     }//GEN-LAST:event_jMenuItem31ActionPerformed
+=======
+    private void txtTimKiemTaiKhoanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTimKiemTaiKhoanActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTimKiemTaiKhoanActionPerformed
+>>>>>>> 1323c33872983af4c9333e1923ce086c5dbab100
 
     public void loadTableLoaiSanPham(String loaiSanPham) {
         ArrayList<sanPham> dataSanPhamTable = MDSanPham.getDataToTable();
@@ -2862,6 +2911,20 @@ public class frmMAIN extends javax.swing.JFrame {
         }
         tableSanPhamPnlSanPham.setModel(model);
     }
+<<<<<<< HEAD
+    public void LoadTableKhachHangKeyReleased(String keyword){
+        String text = txtTimKiemKhachHangPnlKH.getText();
+        ArrayList<khachHang> dataKhachHangTable = MDKhachHang.getDataToTable();
+        ArrayList<khachHang> find = new ArrayList<khachHang>();
+        
+     
+        for (khachHang item : dataKhachHangTable){
+            if(item.getIdKhachHang().toLowerCase().contains(text.toLowerCase())
+               || item.getName().toLowerCase().contains(text.toLowerCase())
+               || item.getSoDienThoai().contains(text)
+               || helper.removeAccent(item.getName().toLowerCase()).contains(text.toLowerCase())){
+               find.add(item);
+=======
 
     public void LoadTableKhachHangKeyReleased(String keyword) {
         ArrayList<khachHang> dataKhachHangTable = MDKhachHang.getDataToTable();
@@ -2882,11 +2945,41 @@ public class frmMAIN extends javax.swing.JFrame {
                     item.getGhiChu(),
                     item.getNo()
                 });
+>>>>>>> 0f7d0ed483e8a850f610b89075e5aef583cd9acf
             }
         }
-        tableKhachHang.setModel(model);
+        if (text != "") {
+            loadTableKhachHang(find);
+        } else {
+            loadTableKhachHang(dataKhachHangTable);
+        }
     }
+<<<<<<< HEAD
+    
+////    private void txtTimKiemNhanVienKeyReleased(java.awt.event.KeyEvent evt) {                                               
+////        String text = txtTimKiemNhanVien.getText();
+////        ArrayList<nhanVien> data = MDNhanVien.getDataToTable();
+////        ArrayList<nhanVien> find = new ArrayList<nhanVien>();
+////        for (nhanVien item : data) {
+////            if (item.getIdNhanVien().toLowerCase().contains(text.toLowerCase())
+////                    || item.getSoDienthoai().contains(text)
+////                    || item.getName().toLowerCase().contains(text.toLowerCase())
+////                    || helper.removeAccent(item.getIdNhanVien().toLowerCase()).contains(text.toLowerCase())
+////                    || helper.removeAccent(item.getName().toLowerCase()).contains(text.toLowerCase())) {
+////                find.add(item);
+////            }
+////        }
+////        if (text != "") {
+////            loadTableNhanVien(find);
+////        } else {
+////            loadTableNhanVien(data);
+////        }
+//    }
+    
+    
+=======
 
+>>>>>>> 0f7d0ed483e8a850f610b89075e5aef583cd9acf
     public void openTab(JPanel TypeOfPanel, String name) {
         JPanel tab = TypeOfPanel;
         tab.setName(name);
