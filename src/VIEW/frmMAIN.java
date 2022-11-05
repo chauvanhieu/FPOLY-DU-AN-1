@@ -2895,7 +2895,7 @@ public class frmMAIN extends javax.swing.JFrame {
         }
         tableSanPhamPnlSanPham.setModel(model);
     }
-<<<<<<< HEAD
+
     public void LoadTableKhachHangKeyReleased(String keyword){
         String text = txtTimKiemKhachHangPnlKH.getText();
         ArrayList<khachHang> dataKhachHangTable = MDKhachHang.getDataToTable();
@@ -2908,28 +2908,6 @@ public class frmMAIN extends javax.swing.JFrame {
                || item.getSoDienThoai().contains(text)
                || helper.removeAccent(item.getName().toLowerCase()).contains(text.toLowerCase())){
                find.add(item);
-=======
-
-    public void LoadTableKhachHangKeyReleased(String keyword) {
-        ArrayList<khachHang> dataKhachHangTable = MDKhachHang.getDataToTable();
-
-        DefaultTableModel model = (DefaultTableModel) tableKhachHang.getModel();
-        model.setRowCount(0);
-
-        for (khachHang item : dataKhachHangTable) {
-            if (item.getIdKhachHang().toLowerCase().contains(keyword.toLowerCase())
-                    || item.getName().toLowerCase().contains(keyword.toLowerCase())
-                    || item.getSoDienThoai().contains(keyword)) {
-
-                model.addRow(new Object[]{
-                    item.getIdKhachHang(),
-                    item.getName(),
-                    item.getDiaChi(),
-                    item.getSoDienThoai(),
-                    item.getGhiChu(),
-                    item.getNo()
-                });
->>>>>>> 0f7d0ed483e8a850f610b89075e5aef583cd9acf
             }
         }
         if (text != "") {
@@ -2938,7 +2916,31 @@ public class frmMAIN extends javax.swing.JFrame {
             loadTableKhachHang(dataKhachHangTable);
         }
     }
-<<<<<<< HEAD
+//    public void LoadTableKhachHangKeyReleased(String keyword) {
+//        ArrayList<khachHang> dataKhachHangTable = MDKhachHang.getDataToTable();
+//
+//        DefaultTableModel model = (DefaultTableModel) tableKhachHang.getModel();
+//        model.setRowCount(0);
+//
+//        for (khachHang item : dataKhachHangTable) {
+//            if (item.getIdKhachHang().toLowerCase().contains(keyword.toLowerCase())
+//                    || item.getName().toLowerCase().contains(keyword.toLowerCase())
+//                    || item.getSoDienThoai().contains(keyword)) {
+//
+//                model.addRow(new Object[]{
+//                    item.getIdKhachHang(),
+//                    item.getName(),
+//                    item.getDiaChi(),
+//                    item.getSoDienThoai(),
+//                    item.getGhiChu(),
+//                    item.getNo()
+//                });
+//
+//            }
+//        }
+//        
+//    }
+
     
 ////    private void txtTimKiemNhanVienKeyReleased(java.awt.event.KeyEvent evt) {                                               
 ////        String text = txtTimKiemNhanVien.getText();
@@ -2961,9 +2963,9 @@ public class frmMAIN extends javax.swing.JFrame {
 //    }
     
     
-=======
 
->>>>>>> 0f7d0ed483e8a850f610b89075e5aef583cd9acf
+
+
     public void openTab(JPanel TypeOfPanel, String name) {
         JPanel tab = TypeOfPanel;
         tab.setName(name);
