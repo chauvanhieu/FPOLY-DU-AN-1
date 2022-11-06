@@ -2901,6 +2901,7 @@ public class frmMAIN extends javax.swing.JFrame {
         tableSanPhamPnlSanPham.setModel(model);
     }
 
+//    public void LoadTableKhachHangKeyReleased(String keyword){
     public void LoadTableKhachHangKeyReleased(String keyword) {
         String text = txtTimKiemKhachHangPnlKH.getText();
         ArrayList<khachHang> dataKhachHangTable = MDKhachHang.getDataToTable();
@@ -2964,6 +2965,12 @@ public class frmMAIN extends javax.swing.JFrame {
 ////            loadTableNhanVien(data);
 ////        }
 //    }
+    
+    
+
+
+
+
     public void openTab(JPanel TypeOfPanel, String name) {
         JPanel tab = TypeOfPanel;
         tab.setName(name);
