@@ -5,6 +5,7 @@ import src.CLASS.Account;
 
 import java.awt.Component;
 import java.awt.Font;
+import java.awt.Frame;
 import java.awt.Image;
 import javax.swing.table.DefaultTableModel;
 import java.sql.ResultSet;
@@ -545,9 +546,23 @@ public class PanelThongKeTongHop extends javax.swing.JPanel {
         Component panel = (JPanel) this.getParent();
         if (tableHoaDonTrongNgay.getSelectedRows().length == 1 && evt.getClickCount() == 2) {
             String idhoadon = tableHoaDonTrongNgay.getValueAt(tableHoaDonTrongNgay.getSelectedRow(), 0) + "";
-            new frmXemHoaDon(null, true, acc, idhoadon).setVisible(true);
+            new frmXemHoaDon((Frame) this.getParent().getParent().getParent().getParent().getParent().getParent(), true, acc, idhoadon).setVisible(true);
+
         }
     }//GEN-LAST:event_tableHoaDonTrongNgayMousePressed
+//    public void openTab(JPanel TypeOfPanel, String name) {
+//        JPanel tab = TypeOfPanel;
+//        tab.setName(name);
+//        if (tabbed.getTabCount() == 0) {
+//            panelMain.removeAll();
+//            panelMain.add(tabbed);
+//            tabbed.setVisible(true);
+//            tabbed.add(tab);
+//        } else {
+//            tabbed.add(tab);
+//            tabbed.setSelectedIndex(tabbed.getTabCount() - 1);
+//        }
+//    }
 
     public void hienThiSanPhamSapHetHang() {
         DefaultTableModel model = (DefaultTableModel) tableSanPhamSapHetHang.getModel();
