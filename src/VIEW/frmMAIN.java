@@ -483,7 +483,7 @@ public class frmMAIN extends javax.swing.JFrame {
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
         jLabel3 = new javax.swing.JLabel();
-        jButton8 = new javax.swing.JButton();
+        bntTimHoaDon = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jSeparator11 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -660,8 +660,13 @@ public class frmMAIN extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setText("ĐẾN NGÀY :");
 
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICON/check-hoa-don.png"))); // NOI18N
-        jButton8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        bntTimHoaDon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICON/check-hoa-don.png"))); // NOI18N
+        bntTimHoaDon.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        bntTimHoaDon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntTimHoaDonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -682,7 +687,7 @@ public class frmMAIN extends javax.swing.JFrame {
                         .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(txtTimKiemHoaDonBanHang))
                 .addGap(18, 18, 18)
-                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bntTimHoaDon, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -700,7 +705,7 @@ public class frmMAIN extends javax.swing.JFrame {
                             .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3)
                             .addComponent(jLabel2)))
-                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bntTimHoaDon, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -2867,6 +2872,10 @@ public class frmMAIN extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jMenuItem31ActionPerformed
 
+    private void bntTimHoaDonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntTimHoaDonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bntTimHoaDonActionPerformed
+
 
     private void txtTimKiemTaiKhoanActionPerformed(java.awt.event.ActionEvent evt) {                                                   
         // TODO add your handling code here:
@@ -2995,6 +3004,7 @@ public class frmMAIN extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bntTimHoaDon;
     private javax.swing.JButton btnDanhSachHoaDonBanHang;
     private javax.swing.JButton btnNhapHang;
     private javax.swing.JButton btnReloadTableSanPham;
@@ -3018,7 +3028,6 @@ public class frmMAIN extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbFilterThuNo2;
     private javax.swing.JComboBox<String> comboBoxNhomHang;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
