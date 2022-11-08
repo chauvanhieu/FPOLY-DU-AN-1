@@ -65,14 +65,14 @@ public class frmXemHoaDon extends javax.swing.JDialog {
         this.dataChiTietHoaDonCu = (ArrayList<chiTietHoaDon>) this.dataChiTietHoaDon.clone();
         this.idKhachHang = hoadon.getIdKhachHang();
         initComponents();
-        lb.setVisible(false);
-        txtTienKhachDua.setVisible(false);
+
         //load combobox giá sĩ giá lẽ
         if (hoadon.getLoaiGia() == 0) {
             cbChonGia.setSelectedIndex(0);
         } else {
             cbChonGia.setSelectedIndex(1);
         }
+
         loadComboboxKhachHang();
         cbHinhThucThanhToan.setSelectedIndex(hoadon.getHinhThucThanhToan() - 1);
         if (cbHinhThucThanhToan.getSelectedIndex() == 2) {
@@ -102,6 +102,8 @@ public class frmXemHoaDon extends javax.swing.JDialog {
         loadTableSanPham();
         editMode(false);
         loadGioHang();
+        lb.setVisible(false);
+        txtTienKhachDua.setVisible(false);
     }
 
     public void loadComboboxKhachHang() {
@@ -632,6 +634,11 @@ public class frmXemHoaDon extends javax.swing.JDialog {
 
         cbHinhThucThanhToan.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         cbHinhThucThanhToan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tiền mặt", "Chuyển khoản", "Nợ" }));
+        cbHinhThucThanhToan.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbHinhThucThanhToanItemStateChanged(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jLabel6.setText("Giá trị giảm :");
@@ -696,6 +703,8 @@ public class frmXemHoaDon extends javax.swing.JDialog {
 
         lb.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         lb.setText("Khách đưa :");
+
+        txtTienKhachDua.setText("0");
 
         panelComboKhachHang.setLayout(new java.awt.BorderLayout());
 
@@ -956,6 +965,11 @@ public class frmXemHoaDon extends javax.swing.JDialog {
     }//GEN-LAST:event_tableSanPhamMouseExited
 
     private void btnLuuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLuuActionPerformed
+
+        if (cbHinhThucThanhToan.getSelectedIndex() == 2 && comboboxKhachHang.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(this, "Thanh toán nợ cần có thông tin khách hàng !");
+            return;
+        }
         editMode(false);
 //        capNhatHoaDon(hoaDon hoadon,   // hóa đơn mới
 //            long tienKhachDua,        // tổng tiền trừ đi tiền nợ.  nếu như là hình thức nợ
@@ -1198,6 +1212,17 @@ public class frmXemHoaDon extends javax.swing.JDialog {
         }
 
     }//GEN-LAST:event_btnSua1ActionPerformed
+
+    private void cbHinhThucThanhToanItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbHinhThucThanhToanItemStateChanged
+        if (cbHinhThucThanhToan.getSelectedIndex() == 2) {
+            txtTienKhachDua.setVisible(true);
+            lb.setVisible(true);
+
+        } else {
+            txtTienKhachDua.setVisible(false);
+            lb.setVisible(false);
+        }
+    }//GEN-LAST:event_cbHinhThucThanhToanItemStateChanged
 
     /**
      * @param args the command line arguments

@@ -97,11 +97,11 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jDateChooser1" min="-2" pref="150" max="-2" attributes="0"/>
+                              <Component id="dateFromHoaDon" min="-2" pref="150" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jDateChooser2" min="-2" pref="150" max="-2" attributes="0"/>
+                              <Component id="dateToHoaDon" min="-2" pref="150" max="-2" attributes="0"/>
                           </Group>
                           <Component id="txtTimKiemHoaDonBanHang" alignment="0" max="32767" attributes="0"/>
                       </Group>
@@ -123,8 +123,8 @@
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="2" attributes="0">
-                                  <Component id="jDateChooser1" alignment="2" min="-2" pref="32" max="-2" attributes="0"/>
-                                  <Component id="jDateChooser2" alignment="2" min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Component id="dateFromHoaDon" alignment="2" min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Component id="dateToHoaDon" alignment="2" min="-2" pref="32" max="-2" attributes="0"/>
                                   <Component id="jLabel3" alignment="2" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel2" alignment="2" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -163,7 +163,7 @@
                 <Property name="text" type="java.lang.String" value="T&#x1af;&#x300; NGA&#x300;Y :"/>
               </Properties>
             </Component>
-            <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser1">
+            <Component class="com.toedter.calendar.JDateChooser" name="dateFromHoaDon">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -178,7 +178,7 @@
                 <Property name="verifyInputWhenFocusTarget" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser2">
+            <Component class="com.toedter.calendar.JDateChooser" name="dateToHoaDon">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -208,6 +208,9 @@
                 </Property>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton8ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

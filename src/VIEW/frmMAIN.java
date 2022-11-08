@@ -480,8 +480,8 @@ public class frmMAIN extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         txtTimKiemHoaDonBanHang = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        dateFromHoaDon = new com.toedter.calendar.JDateChooser();
+        dateToHoaDon = new com.toedter.calendar.JDateChooser();
         jLabel3 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
@@ -645,23 +645,28 @@ public class frmMAIN extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("TỪ NGÀY :");
 
-        jDateChooser1.setForeground(new java.awt.Color(255, 255, 255));
-        jDateChooser1.setDate(new Date());
-        jDateChooser1.setDateFormatString("dd-MM-yyyy");
-        jDateChooser1.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        jDateChooser1.setVerifyInputWhenFocusTarget(false);
+        dateFromHoaDon.setForeground(new java.awt.Color(255, 255, 255));
+        dateFromHoaDon.setDate(new Date());
+        dateFromHoaDon.setDateFormatString("dd-MM-yyyy");
+        dateFromHoaDon.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        dateFromHoaDon.setVerifyInputWhenFocusTarget(false);
 
-        jDateChooser2.setForeground(new java.awt.Color(255, 255, 255));
-        jDateChooser2.setDate(new Date());
-        jDateChooser2.setDateFormatString("dd-MM-yyyy");
-        jDateChooser2.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        jDateChooser2.setVerifyInputWhenFocusTarget(false);
+        dateToHoaDon.setForeground(new java.awt.Color(255, 255, 255));
+        dateToHoaDon.setDate(new Date());
+        dateToHoaDon.setDateFormatString("dd-MM-yyyy");
+        dateToHoaDon.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        dateToHoaDon.setVerifyInputWhenFocusTarget(false);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setText("ĐẾN NGÀY :");
 
         jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICON/check-hoa-don.png"))); // NOI18N
         jButton8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -675,11 +680,11 @@ public class frmMAIN extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(dateFromHoaDon, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(dateToHoaDon, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(txtTimKiemHoaDonBanHang))
                 .addGap(18, 18, 18)
                 .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -696,8 +701,8 @@ public class frmMAIN extends javax.swing.JFrame {
                             .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(dateFromHoaDon, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(dateToHoaDon, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3)
                             .addComponent(jLabel2)))
                     .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -2867,10 +2872,19 @@ public class frmMAIN extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jMenuItem31ActionPerformed
 
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        String keyword = txtTimKiemHoaDonBanHang.getText().trim();
+        String dateFrom = helper.LayNgayString(dateFromHoaDon.getDate(), "yyyy-MM-dd");
+        String dateTo = helper.LayNgayString(dateToHoaDon.getDate(), "yyyy-MM-dd");
+        MDHoaDon.getDanhSachHoaDon(tableDanhSachHoaDonBanHang, dateFrom, dateTo, keyword);
+        DefaultTableModel model = (DefaultTableModel) tableChiTietHoaDonBanHang.getModel();
+        model.setRowCount(0);
+        tableChiTietHoaDonBanHang.setModel(model);
+    }//GEN-LAST:event_jButton8ActionPerformed
 
-    private void txtTimKiemTaiKhoanActionPerformed(java.awt.event.ActionEvent evt) {                                                   
+    private void txtTimKiemTaiKhoanActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }                                                  
+    }
 
     public void loadTableLoaiSanPham(String loaiSanPham) {
         ArrayList<sanPham> dataSanPhamTable = MDSanPham.getDataToTable();
@@ -2965,12 +2979,6 @@ public class frmMAIN extends javax.swing.JFrame {
 ////            loadTableNhanVien(data);
 ////        }
 //    }
-    
-    
-
-
-
-
     public void openTab(JPanel TypeOfPanel, String name) {
         JPanel tab = TypeOfPanel;
         tab.setName(name);
@@ -3017,10 +3025,10 @@ public class frmMAIN extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbFilterThuNo1;
     private javax.swing.JComboBox<String> cbFilterThuNo2;
     private javax.swing.JComboBox<String> comboBoxNhomHang;
+    private com.toedter.calendar.JDateChooser dateFromHoaDon;
+    private com.toedter.calendar.JDateChooser dateToHoaDon;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
