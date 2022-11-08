@@ -189,6 +189,66 @@ public class MDHoaDon {
         table.setModel(model);
     }
 
+    public static void capNhatHoaDon(hoaDon hoadon,
+            long tienKhachDua,
+            JTable tableGioHang,
+            ArrayList<chiTietHoaDon> dataGioHangCu,
+            ArrayList<chiTietHoaDon> dataGioHangMoi,
+            int hinhThucThanhToanCu,
+            long tongTienHoaDonCu,
+            String idKhachHangCu) {
+
+        String sqlTruCongNoKhachHang = "update khachhang set congno = congno - ? where id = ?";
+
+        String sqlResetSoLuongSanPham = "update sanpham set sanpham.soluong=sanpham.soluong + ? where sanpham.id = ?";
+
+        String sqlXoaChiTietHoaDon = "delete from chitiethoadon where idhoadon = ?";
+
+        String sqlCapNhatHoaDon = "update hoadon set idkhachhang = ?,hinhthucthanhtoan=?,giamgia=?,"
+                + " tongtienthanhtoan=?,sotiennhanduoc=?,loaigia=?,ghichu=? where id = ?";
+
+        String sqlThemChiTietHoaDon = "insert into chitiethoadon(idhoadon,idsanpham,soluong,"
+                + "chitiethoadon.giaban,trangthai) values(?,?,?,?,1)";
+
+        String sqlTruTonKho = "update sanpham set sanpham.soluong = sanpham.soluong - ? where sanpham.id = ?";
+
+        // xóa chi tiết hóa đơn của hóa đơn cần sữa.
+        HELPER.SQLhelper.executeUpdate(sqlXoaChiTietHoaDon, hoadon.getId());
+
+        //trừ công nợ khách hàng về số tiền lúc chưa mua nếu như là hình thức nợ
+        if (hinhThucThanhToanCu == 3) {
+            HELPER.SQLhelper.executeUpdate(sqlTruCongNoKhachHang, tongTienHoaDonCu, idKhachHangCu);
+        }
+
+        // reset số lượng sản phẩm về lúc ban đầu
+        for (chiTietHoaDon item : dataGioHangCu) {
+            HELPER.SQLhelper.executeUpdate(sqlResetSoLuongSanPham, item.getSoLuong(), item.getIdSanPham());
+            System.out.println(item.getSoLuong() + " " + item.getTenSanPham());
+        }
+
+        // cập nhật lại hóa đơn:
+        HELPER.SQLhelper.executeUpdate(sqlCapNhatHoaDon,
+                hoadon.getIdKhachHang(), hoadon.getHinhThucThanhToan(), hoadon.getGiamGia(),
+                hoadon.getTongTien(), hoadon.getSoTienNhanDuoc(), hoadon.getLoaiGia(), hoadon.getGhiChu(),
+                hoadon.getId()
+        );
+
+        // thêm chi tiết hóa đơn:
+        int rows = tableGioHang.getRowCount();
+        for (int i = 0; i < rows; i++) {
+            // thêm chi tiết hóa đơn.
+            HELPER.SQLhelper.executeUpdate(sqlThemChiTietHoaDon,
+                    hoadon.getId(),
+                    dataGioHangMoi.get(i).getIdSanPham(),
+                    Integer.parseInt(tableGioHang.getValueAt(i, 2) + ""),
+                    HELPER.helper.StringToLong(tableGioHang.getValueAt(i, 3) + "")
+            );
+
+            // trừ số lượng tồn kho từng sản phẩm được bán
+            HELPER.SQLhelper.executeUpdate(sqlTruTonKho, dataGioHangMoi.get(i).getSoLuong(), dataGioHangMoi.get(i).getIdSanPham());
+        }
+    }
+
     public static void taoHoaDon(hoaDon hoadon, long tienKhachDua, JTable tableGioHang, ArrayList<chiTietHoaDon> dataGioHang) {
 
         String sql = "insert into hoadon values(?,?,?,?,?,?,?,?,?,?,?)";

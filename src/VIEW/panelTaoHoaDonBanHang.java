@@ -123,12 +123,12 @@ public class panelTaoHoaDonBanHang extends javax.swing.JPanel {
         });
 
         //nút F10
-        InputMap f10 = jButton5.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
+        InputMap f10 = btnLuuIn.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
         f10.put(KeyStroke.getKeyStroke("F10"), "VK_F10");
-        jButton5.getActionMap().put("VK_F10", new AbstractAction() {
+        btnLuuIn.getActionMap().put("VK_F10", new AbstractAction() {
             public void actionPerformed(ActionEvent evt) {
 
-                jButton5.doClick();
+                btnLuuIn.doClick();
 
             }
         });
@@ -288,7 +288,7 @@ public class panelTaoHoaDonBanHang extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         txtTongTien = new javax.swing.JTextField();
         btnThanhToan = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        btnLuuIn = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         jButton3 = new javax.swing.JButton();
@@ -559,12 +559,12 @@ public class panelTaoHoaDonBanHang extends javax.swing.JPanel {
             }
         });
 
-        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(0, 102, 204));
-        jButton5.setText("Lưu & in (F10)");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btnLuuIn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnLuuIn.setForeground(new java.awt.Color(0, 102, 204));
+        btnLuuIn.setText("Lưu & in (F10)");
+        btnLuuIn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btnLuuInActionPerformed(evt);
             }
         });
 
@@ -625,7 +625,7 @@ public class panelTaoHoaDonBanHang extends javax.swing.JPanel {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(btnThanhToan)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton5)
+                        .addComponent(btnLuuIn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton6)
                         .addGap(0, 10, Short.MAX_VALUE))
@@ -686,7 +686,7 @@ public class panelTaoHoaDonBanHang extends javax.swing.JPanel {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(btnThanhToan, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnLuuIn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -1142,7 +1142,7 @@ public class panelTaoHoaDonBanHang extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_cbHinhThucThanhToanItemStateChanged
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void btnLuuInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLuuInActionPerformed
         if (dataChiTietHoaDon.size() != 0) {
             if (comboboxKhachHang.getSelectedIndex() == 0) {
                 idKhachHang = "KH01";
@@ -1171,7 +1171,7 @@ public class panelTaoHoaDonBanHang extends javax.swing.JPanel {
         } else {
             JOptionPane.showMessageDialog(this, "Chưa có sản phẩm !");
         }
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_btnLuuInActionPerformed
 
     private void txtBarcodeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBarcodeKeyReleased
         // TODO add your handling code here:
@@ -1184,6 +1184,7 @@ public class panelTaoHoaDonBanHang extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEnter;
+    private javax.swing.JButton btnLuuIn;
     private javax.swing.JButton btnThanhToan;
     private javax.swing.JComboBox<String> cbChonGia;
     private javax.swing.JComboBox<String> cbHinhThucThanhToan;
@@ -1192,7 +1193,6 @@ public class panelTaoHoaDonBanHang extends javax.swing.JPanel {
     private javax.swing.JLabel iconBarcode;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
